@@ -1,0 +1,39 @@
+public class TwoDArray {
+    private int[][] array;
+    public TwoDArray(int rows, int cols) {
+        array = new int[rows][cols];
+    }
+    public void set(int row, int col, int data) {
+        if (isValidIndex(row, col)) {
+            array[row][col] = data;
+       } else {
+            System.out.println("Invalid index!");
+        }
+    }
+    public int get(int row, int col) {
+        if (isValidIndex(row, col)) {
+            return array[row][col];
+        } else {
+            System.out.println("Invalid index!");
+            return -1;
+        }
+    }
+    public void print() {
+        for (int[] row : array) {
+            for (int val : row) {
+                System.out.print(val + " ");
+           }
+            System.out.println();
+        }
+    }
+    private boolean isValidIndex(int row, int col) {
+        return row >= 0 && row < array.length && col >= 0 && col < array[0].length;
+    }
+    public static void main(String[] args) {
+        TwoDArray arr = new TwoDArray(3, 4);
+        arr.set(0, 0, 10);
+        arr.set(1, 2, 20);
+        System.out.println("Element at (1,2): " + arr.get(1, 2));
+        arr.print();
+    }
+}
