@@ -1,0 +1,27 @@
+public class LastDuplicateFinder {
+
+    public static void main(String[] args) {
+        int[] arr = {3, 5, 1, 4, 5, 2, 3};  
+        Integer lastDuplicate = findLastDuplicate(arr);
+        if (lastDuplicate != null) {
+            System.out.println("Last duplicate: " + lastDuplicate);
+        } else {
+            System.out.println("No duplicates found.");
+        }
+    }
+    public static Integer findLastDuplicate(int[] arr) {
+        for (int i = arr.length - 1; i >= 0; i--) { // Start from end
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    return arr[i];  
+                }
+            }
+        }
+        return null; 
+    }
+}
+
+
+
+
+
